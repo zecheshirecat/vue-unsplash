@@ -7,7 +7,7 @@
 
 const _baseUrl = 'https://api.unsplash.com';
 
-const _get = function (endpoint) {
+function _get(endpoint) {
   return new Promise((resolve, reject) => {
     if (window.fetch) {
       fetch(_baseUrl + endpoint).then(response => {
@@ -30,7 +30,7 @@ const _get = function (endpoint) {
       req.send();
     }
   });
-};
+}
 
 export default {
   install(Vue, options) {
