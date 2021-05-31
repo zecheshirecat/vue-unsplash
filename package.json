@@ -1,15 +1,15 @@
 {
   "name": "vue-unsplash",
-  "version": "2.0.0",
+  "version": "3.1.0",
   "description": "A simple Unsplash API plugin for Vue.js",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "babel": "npx babel main.js --out-file index.js"
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-2": "^6.24.1"
+    "typescript": "^4.3.2"
   },
   "keywords": [
     "vue",
@@ -18,7 +18,8 @@
     "unsplash",
     "api",
     "js",
-    "javascript"
+    "javascript",
+    "typescript"
   ],
   "repository": {
     "type": "git",

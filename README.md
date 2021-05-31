@@ -14,13 +14,39 @@ Default use in your main.js Vue project
 
 ```javascript
 import Unsplash from 'vue-unsplash'
-
-Vue.use(Unsplash)
+...
 // Access Key is mandatory to use Unsplash API
-Vue.unsplash.setAccessKey(<string>)
+createApp(App)
+  .use(Unsplash, { accessKey: <string> })
+...
 ```
 
-You can now use the instance methods 'this.$unsplash' in your Vue template script.
+## Setup Composition API
+
+You can now use the instance methods `this.$unsplash` in your Vue template script.
+In Vue 3.x, as an example to use in the setup composition API:
+
+```javascript
+import { getCurrentInstance, onMounted } from 'vue'
+...
+export default {
+  name: 'MyComponent',
+
+  setup(props, context) {
+    const instance = getCurrentInstance()
+    const globalProperties = instance.appContext.config.globalProperties
+
+    onMounted(async () => {
+      var image = await globalProperties.$unsplash.getPhoto('l3N9Q27zULw')
+      var urls = image.urls || []
+      var links = image.links || []
+      var user = image.user || {}
+      ...
+    })
+  }
+}
+...
+```
 
 ## List photos
 
